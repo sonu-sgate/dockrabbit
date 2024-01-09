@@ -1,0 +1,30 @@
+version:'3'
+services:
+  rabbitmq:
+     image: "rabbitmq:3-management"
+     ports:
+       - "5672:5672"
+       - "15672:15672"
+
+
+
+ booking:
+  build:
+    context: ./booking
+  depends_on:
+    - rabbitmq
+ 
+ payment:
+  build:
+    context: ./payment
+  depends_on:
+    - rabbitmq
+
+ reporting:
+  build:
+   context: ./reporting
+
+  depends_on:
+    -rabbitmq
+
+
