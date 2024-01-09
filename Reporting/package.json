@@ -2,14 +2,16 @@
   "name": "reporting",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "reporting.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "start":"node reporting.js",
+   "server":"nodemon reporting.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amqplib": "^0.10.3"
+    "amqplib": "^0.10.3",
+    "nodemon": "^3.0.2"
   }
 }

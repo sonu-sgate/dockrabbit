@@ -2,14 +2,16 @@
   "name": "payment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "payment.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+ "start":"node payment.js",
+ "server":"nodemon paymentjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amqplib": "^0.10.3"
+    "amqplib": "^0.10.3",
+    "nodemon": "^3.0.2"
   }
 }

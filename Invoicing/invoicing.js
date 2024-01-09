@@ -1,7 +1,7 @@
 const amqp=require('amqplib')
 
 async function startInvoingService(){
-    const connection=await amqp.connect('amqp://rabbitmq:5672')
+    const connection=await amqp.connect('amqp://127.0.0.1')
 
     const channel=await connection.createChannel()
 
