@@ -16,7 +16,7 @@ async function startBookingservice(){
         const paymentRequest={user:bookingRequest.user,amount:100}
         channel.sendToQueue('payment_queue',Buffer.from(JSON.stringify(paymentRequest)))
 console.log(`Sent Payment request :${JSON.stringify(paymentRequest)}`)
-console.log(bookingRequest,"bookingrequest")
+// console.log(bookingRequest,"bookingrequest")
 console.log("booking processed...")
         // acknowleding the booking queue
 channel.ack(msg)

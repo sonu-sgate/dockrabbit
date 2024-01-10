@@ -7,6 +7,7 @@ async function startInvoingService(){
 
 
     await channel.assertQueue('Invoicing_queue',{durable:false})
+    await channel.assertQueue('reporting_queue',{durable:false})
 
     console.log('Invoicing service is waiting for invoicing requests')
 
@@ -14,12 +15,14 @@ async function startInvoingService(){
 
 channel.consume('Invoicing_queue',(msg)=>{
 const InvoicingRequest=JSON.parse(msg.content.toString())
-
+// console.log(msg,"invoicing msg")
 console.log(`Received invoicing request:${JSON.stringify(InvoicingRequest)}`)
+const reportRequest={user:msg.user,Report:"Yes"}
+channel.sendToQueue("reporting_queue",Buffer.from(JSON.stringify(reportRequest)))
 
 
 
-
-},{noAck:true})}
+channel.ack(msg)
+},{noAck:false})}
 
 startInvoingService()
